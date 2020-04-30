@@ -1,10 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:issyosan_factory/services/navigation_service.dart';
 import 'package:issyosan_factory/ui/widget/space.dart';
+
+import '../../../locator.dart';
 
 class LoginView extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+
+  final _navigationService = locator.get<NavigationService>();
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +43,7 @@ class LoginView extends StatelessWidget {
                   FlatButton(
                     child: const Text('login'),
                     onPressed: () {
-                      print('emal_address=[${emailController.value}].');
+                      _navigationService.navigateReplacementTo('books');
                     },
                   )
                 ],

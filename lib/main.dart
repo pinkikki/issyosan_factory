@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:issyosan_factory/router.dart';
+import 'package:issyosan_factory/services/navigation_service.dart';
+import 'package:issyosan_factory/ui/viewmodels/baby.dart';
 import 'package:issyosan_factory/ui/widget/text.dart';
+import 'package:provider/provider.dart';
 
 import 'locator.dart';
 
 void main() {
   setupLocator();
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [ChangeNotifierProvider(create: (context) => BabyViewModel())],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatelessWidget {
@@ -23,7 +29,8 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blueGrey,
       ),
       darkTheme: ThemeData.dark(),
-      initialRoute: '/login',
+      initialRoute: 'login',
+      navigatorKey: locator.get<NavigationService>().navigationKey,
       onGenerateRoute: Router.generateRoute,
     );
   }
