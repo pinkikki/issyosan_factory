@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
 import 'package:issyosan_factory/ui/viewmodels/baby.dart';
+import 'package:issyosan_factory/ui/widget/drawer.dart';
 import 'package:provider/provider.dart';
 
 import '../../../locator.dart';
@@ -27,6 +28,7 @@ class _BooksPageState extends State<BooksPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: _buildAppBar(context),
+      drawer: AppDrawer(),
       body: _buildBody(context),
       floatingActionButton: _buildFloatingActionButton(),
     );

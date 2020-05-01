@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:issyosan_factory/router.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
 import 'package:issyosan_factory/ui/viewmodels/baby.dart';
+import 'package:issyosan_factory/ui/viewmodels/settings.dart';
 import 'package:issyosan_factory/ui/widget/text.dart';
 import 'package:provider/provider.dart';
 
@@ -10,7 +11,10 @@ import 'locator.dart';
 void main() {
   setupLocator();
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (context) => BabyViewModel())],
+    providers: [
+      ChangeNotifierProvider(create: (context) => BabyViewModel()),
+      ChangeNotifierProvider(create: (context) => SettingsViewModel())
+    ],
     child: MyApp(),
   ));
 }

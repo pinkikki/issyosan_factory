@@ -9,8 +9,6 @@ class BookDetailPage extends StatefulWidget {
 }
 
 class _BookDetailState extends State<BookDetailPage> {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,17 +20,6 @@ class _BookDetailState extends State<BookDetailPage> {
   PreferredSizeWidget _buildAppBar() {
     return AppBar(
       title: const Text('Book Detail'),
-      actions: <Widget>[
-        IconButton(
-          icon: const Icon(Icons.save),
-          onPressed: () {
-            if (_formKey.currentState.validate()) {
-              _formKey.currentState.save();
-              _save();
-            }
-          },
-        )
-      ],
     );
   }
 
@@ -40,9 +27,5 @@ class _BookDetailState extends State<BookDetailPage> {
     return const Center(
       child: Text('show book detail.'),
     );
-  }
-
-  Future<void> _save() async {
-    // nop
   }
 }

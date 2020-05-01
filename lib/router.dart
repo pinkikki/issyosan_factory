@@ -3,6 +3,7 @@ import 'package:issyosan_factory/ui/views/auth/login.dart';
 import 'package:issyosan_factory/ui/views/baby/detail.dart';
 import 'package:issyosan_factory/ui/views/baby/list.dart';
 import 'package:issyosan_factory/ui/views/baby/registration.dart';
+import 'package:issyosan_factory/ui/views/settings/settings.dart';
 
 class Router {
   static Route generateRoute(RouteSettings settings) {
@@ -26,6 +27,11 @@ class Router {
         return _getPageRoute(
           routeName: settings.name,
           viewToShow: const BookRegistrationPage(),
+        );
+      case 'settings':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: const SettingsPage(),
         );
       default:
         return MaterialPageRoute<void>(
