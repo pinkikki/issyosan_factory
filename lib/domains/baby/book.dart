@@ -1,12 +1,16 @@
 import 'package:flutter/cupertino.dart';
 
 class Book {
-  Book(this.id, this.name, this.pageCount, this.released,
-      {@required this.isPaid});
+  Book(
+      {@required this.id,
+      @required this.name,
+      @required this.pageCount,
+      @required this.released,
+      @required this.isPaid});
 
-  int id;
-  String name;
-  int pageCount;
-  bool isPaid;
-  DateTime released;
+  final String id;
+  final String name;
+  final int pageCount;
+  final DateTime released;
+  final bool isPaid;
 }

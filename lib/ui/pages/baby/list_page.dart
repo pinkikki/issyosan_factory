@@ -57,7 +57,7 @@ class _BooksPageState extends State<BooksPage> {
               return ListTile(
                   title: Text(book.name),
                   subtitle: Text(book.released.toIso8601String()),
-                  key: Key(book.id.toString()),
+                  key: Key(book.id),
                   onTap: () => _navigationService.navigateTo('book_detail'));
             });
       },

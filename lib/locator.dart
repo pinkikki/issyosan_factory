@@ -25,7 +25,6 @@ void setupLocator({@required Environment environment}) {
 
 void _default() {
   locator
-    ..registerLazySingleton<BookRepository>(() => BookClient())
     ..registerLazySingleton<SettingsRepository>(() => SettingsClient())
     ..registerLazySingleton<NavigationService>(() => NavigationService());
 }
@@ -35,5 +34,6 @@ void _aws() {
 }
 
 void _local() {
-  // nop
+  locator.registerLazySingleton<BookRepository>(() => const BookClient(
+      endpoint: 'https://jsonbox.io/box_e68dcddaabcf9809d816'));
 }

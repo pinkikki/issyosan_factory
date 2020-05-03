@@ -6,16 +6,19 @@ import 'package:issyosan_factory/locator.dart';
 class BabyViewModel extends ChangeNotifier {
   final BookRepository repo = locator.get<BookRepository>();
 
-  List<Book> _books;
+  List<Book> _books = [];
 
   List<Book> get books => _books;
 
-  void init() {
-    _books = repo.list();
+  Future<void> init() async {
+    _books = await repo.list();
+    debugPrint(_books.length.toString());
+    notifyListeners();
   }
 
-  void refresh() {
-    _books = repo.list();
+  Future<void> refresh() async {
+    _books = await repo.list();
+    debugPrint(_books.length.toString());
     notifyListeners();
   }
 }

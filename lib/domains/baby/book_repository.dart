@@ -1,7 +1,7 @@
 import 'book.dart';
 
 abstract class BookRepository {
-  Book get();
+  Future<Book> get(int id);
 
-  List<Book> list();
+  Future<List<Book>> list();
 }

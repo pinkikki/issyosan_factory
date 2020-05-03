@@ -12,10 +12,10 @@ enum Environment {
 }
 
 void run({@required Environment environment}) {
-  https: //stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
+  // https: //stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
   WidgetsFlutterBinding.ensureInitialized();
 
-  setupLocator();
+  setupLocator(environment: environment);
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => BabyViewModel()),
