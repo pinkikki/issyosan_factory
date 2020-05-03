@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:issyosan_factory/ui/views/auth/login.dart';
-import 'package:issyosan_factory/ui/views/baby/detail.dart';
-import 'package:issyosan_factory/ui/views/baby/list.dart';
-import 'package:issyosan_factory/ui/views/baby/registration.dart';
-import 'package:issyosan_factory/ui/views/settings/settings.dart';
+import 'package:issyosan_factory/ui/pages/auth/login_page.dart';
+import 'package:issyosan_factory/ui/pages/baby/detail_page.dart';
+import 'package:issyosan_factory/ui/pages/baby/list_page.dart';
+import 'package:issyosan_factory/ui/pages/baby/registration_page.dart';
+import 'package:issyosan_factory/ui/pages/settings/settings_page.dart';
 
 class Router {
   static Route generateRoute(RouteSettings settings) {
@@ -11,7 +11,7 @@ class Router {
       case 'login':
         return _getPageRoute(
           routeName: settings.name,
-          viewToShow: LoginView(),
+          viewToShow: LoginPage(),
         );
       case 'books':
         return _getPageRoute(

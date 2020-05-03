@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
-import 'package:issyosan_factory/ui/viewmodels/baby.dart';
+import 'package:issyosan_factory/ui/models/baby_model.dart';
 import 'package:issyosan_factory/ui/widget/drawer.dart';
 import 'package:provider/provider.dart';
 

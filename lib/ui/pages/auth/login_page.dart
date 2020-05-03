@@ -5,7 +5,7 @@ import 'package:issyosan_factory/ui/widget/space.dart';
 
 import '../../../locator.dart';
 
-class LoginView extends StatelessWidget {
+class LoginPage extends StatelessWidget {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 

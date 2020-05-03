@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:issyosan_factory/ui/viewmodels/settings.dart';
+import 'package:issyosan_factory/ui/models/settings_model.dart';
 import 'package:issyosan_factory/ui/widget/drawer.dart';
 import 'package:provider/provider.dart';
 
