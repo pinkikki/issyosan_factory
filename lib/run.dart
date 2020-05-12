@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:issyosan_factory/logger.dart';
 import 'package:issyosan_factory/ui/models/baby_model.dart';
 import 'package:issyosan_factory/ui/models/settings_model.dart';
 import 'package:provider/provider.dart';
@@ -15,6 +16,7 @@ void run({@required Environment environment}) {
   // https: //stackoverflow.com/questions/57689492/flutter-unhandled-exception-servicesbinding-defaultbinarymessenger-was-accesse
   WidgetsFlutterBinding.ensureInitialized();
 
+  setupLogger();
   setupLocator(environment: environment);
   runApp(MultiProvider(
     providers: [
