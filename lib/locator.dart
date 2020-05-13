@@ -34,6 +34,6 @@ void _aws() {
 }
 
 void _local() {
-  locator.registerLazySingleton<BookRepository>(() => const BookClient(
-      endpoint: 'https://jsonbox.io/box_e68dcddaabcf9809d816'));
+  locator.registerLazySingleton<BookRepository>(() =>
+      BookClient(endpoint: 'https://jsonbox.io/box_e68dcddaabcf9809d816'));
 }

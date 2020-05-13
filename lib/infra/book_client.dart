@@ -4,12 +4,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:http/http.dart' as http;
 import 'package:issyosan_factory/domains/baby/book.dart';
 import 'package:issyosan_factory/domains/baby/book_repository.dart';
+import 'package:logging/logging.dart';
 
 @immutable
 class BookClient implements BookRepository {
-  const BookClient({@required this.endpoint});
+  BookClient({@required this.endpoint});
 
   static const String resource = '_baby_book';
+  final Logger logger = Logger('BookClient');
   final String endpoint;
 
   @override
@@ -39,9 +41,15 @@ class BookClient implements BookRepository {
     }
   }
 
+  @override
+  Future<void> remove(Book book) async {
+    // nop
+    logger.fine(book.id);
+  }
+
   Book _toBook(Map<String, dynamic> json) {
     return Book(
-      id: json['id'] as String,
+      id: json['_id'] as String,
       name: json['name'] as String,
       pageCount: json['pageCount'] as int,
       released: DateTime.parse(json['released'] as String),

@@ -54,11 +54,19 @@ class _BooksPageState extends State<BooksPage> {
             itemCount: model.books.length,
             itemBuilder: (context, i) {
               final book = model.books[i];
-              return ListTile(
-                  title: Text(book.name),
-                  subtitle: Text(book.released.toIso8601String()),
-                  key: Key(book.id),
-                  onTap: () => _navigationService.navigateTo('book_detail'));
+              return Dismissible(
+                key: Key(book.id),
+                onDismissed: (direction) {
+                  model.remove(i);
+                  Scaffold.of(context).showSnackBar(
+                      SnackBar(content: Text('${book.id} dismissed')));
+                },
+                background: Container(color: Colors.red),
+                child: ListTile(
+                    title: Text(book.name),
+                    subtitle: Text(book.released.toIso8601String()),
+                    onTap: () => _navigationService.navigateTo('book_detail')),
+              );
             });
       },
     );
