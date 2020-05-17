@@ -32,6 +32,12 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            title: const MenuText('Character'),
+            onTap: () {
+              _navigationService.navigateTo('character_showcase');
+            },
+          ),
+          ListTile(
             title: const MenuText('Settings'),
             onTap: () {
               _navigationService.navigateTo('settings');

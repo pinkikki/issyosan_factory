@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
+import 'package:issyosan_factory/domains/character/character_repository.dart';
+import 'package:issyosan_factory/infra/character_client.dart';
 import 'package:issyosan_factory/infra/settings_client.dart';
 import 'package:issyosan_factory/run.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
@@ -25,6 +27,7 @@ void setupLocator({@required Environment environment}) {
 
 void _default() {
   locator
+    ..registerLazySingleton<CharacterRepository>(() => CharacterClient())
     ..registerLazySingleton<SettingsRepository>(() => SettingsClient())
     ..registerLazySingleton<NavigationService>(() => NavigationService());
 }

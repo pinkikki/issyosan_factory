@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:issyosan_factory/logger.dart';
+import 'package:issyosan_factory/ui/controllers/character_controller.dart';
+import 'package:issyosan_factory/ui/controllers/character_state.dart';
 import 'package:issyosan_factory/ui/models/baby_model.dart';
 import 'package:issyosan_factory/ui/models/settings_model.dart';
 import 'package:provider/provider.dart';
@@ -21,6 +24,8 @@ void run({@required Environment environment}) {
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (context) => BabyViewModel()),
+      StateNotifierProvider<CharacterController, CharacterState>(
+          create: (context) => CharacterController()),
       ChangeNotifierProvider(create: (context) => SettingsViewModel())
     ],
     child: App(),
