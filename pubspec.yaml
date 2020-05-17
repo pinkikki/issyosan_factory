@@ -7,24 +7,24 @@ dependencies:
   flutter:
     sdk: flutter
 
-  cupertino_icons: ^0.1.2
-  intl: ^0.16.1
-  font_awesome_flutter: ^8.5.0
-  image_picker: ^0.6.4
-  connectivity: ^0.4.8+2
-  flutter_local_notifications: ^1.4.0
-  get_it: ^4.0.1
-  provider: ^4.1.2
-  shared_preferences: ^0.5.6+3
-  http: ^0.12.1
-  logging: ^0.11.4
-  stack_trace: ^1.9.3
-  state_notifier: ^0.4.0
-  flutter_state_notifier: ^0.4.2
+  cupertino_icons:
+  intl:
+  font_awesome_flutter:
+  image_picker:
+  connectivity:
+  flutter_local_notifications:
+  get_it:
+  provider:
+  shared_preferences:
+  http:
+  logging:
+  stack_trace:
+  state_notifier:
+  flutter_state_notifier:
   freezed_annotation:
 
 dev_dependencies:
-  pedantic_mono: any
+  pedantic_mono:
   flutter_test:
     sdk: flutter
   build_runner:
