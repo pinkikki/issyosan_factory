@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:issyosan_factory/ui/controllers/character_controller.dart';
-import 'package:issyosan_factory/ui/controllers/character_state.dart';
+import 'package:issyosan_factory/ui/controllers/letter_controller.dart';
+import 'package:issyosan_factory/ui/controllers/letter_state.dart';
 import 'package:issyosan_factory/ui/widget/drawer.dart';
 import 'package:provider/provider.dart';
 
@@ -16,7 +16,7 @@ class _ShowcaseState extends State<ShowcasePage> {
   @override
   void initState() {
     super.initState();
-    context.read<CharacterController>().fetch();
+    context.read<LetterController>().fetch();
   }
 
   @override
@@ -29,7 +29,7 @@ class _ShowcaseState extends State<ShowcasePage> {
   }
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
-    final controller = Provider.of<CharacterController>(context, listen: false);
+    final controller = Provider.of<LetterController>(context, listen: false);
     return AppBar(
       title: const Text('Showcase'),
       actions: <Widget>[
@@ -51,13 +51,12 @@ class _ShowcaseState extends State<ShowcasePage> {
 class Showcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final characters =
-        context.select((CharacterState state) => state.characters);
+    final papers = context.select((LetterState state) => state.papers);
     return ListView.builder(
-        itemCount: characters.length,
+        itemCount: papers.length,
         itemBuilder: (context, i) {
-          final character = characters[i];
-          return ListTile(title: Text(character.name));
+          final paper = papers[i];
+          return ListTile(title: Text(paper.no));
         });
   }
 }

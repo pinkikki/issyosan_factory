@@ -3,7 +3,7 @@ import 'package:issyosan_factory/ui/pages/auth/login_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/detail_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/list_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/registration_page.dart';
-import 'package:issyosan_factory/ui/pages/character/showcase_page.dart';
+import 'package:issyosan_factory/ui/pages/letter/showcase_page.dart';
 import 'package:issyosan_factory/ui/pages/settings/settings_page.dart';
 
 class Router {
@@ -29,7 +29,7 @@ class Router {
           routeName: settings.name,
           viewToShow: const BookRegistrationPage(),
         );
-      case 'character_showcase':
+      case 'letter_showcase':
         return _getPageRoute(
           routeName: settings.name,
           viewToShow: const ShowcasePage(),

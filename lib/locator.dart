@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:get_it/get_it.dart';
-import 'package:issyosan_factory/domains/character/character_repository.dart';
-import 'package:issyosan_factory/infra/character_client.dart';
+import 'package:issyosan_factory/infra/paper_client.dart';
 import 'package:issyosan_factory/infra/settings_client.dart';
 import 'package:issyosan_factory/run.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
 
 import 'domains/baby/book_repository.dart';
+import 'domains/letter/paper_repository.dart';
 import 'domains/settings/settings_repository.dart';
 import 'infra/book_client.dart';
 
@@ -27,7 +27,7 @@ void setupLocator({@required Environment environment}) {
 
 void _default() {
   locator
-    ..registerLazySingleton<CharacterRepository>(() => CharacterClient())
+    ..registerLazySingleton<PaperRepository>(() => PaperClient())
     ..registerLazySingleton<SettingsRepository>(() => SettingsClient())
     ..registerLazySingleton<NavigationService>(() => NavigationService());
 }
