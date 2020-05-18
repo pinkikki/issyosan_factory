@@ -32,6 +32,9 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
+  assets:
+    - assets/
+    - assets/letter/
 
 flutter_icons:
   image_path: "assets/ioncs/ic_launcher.png"

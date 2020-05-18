@@ -52,11 +52,21 @@ class Showcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final papers = context.select((LetterState state) => state.papers);
-    return ListView.builder(
+    return GridView.builder(
         itemCount: papers.length,
+        padding: const EdgeInsets.all(8),
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 4, crossAxisSpacing: 2, mainAxisSpacing: 10),
         itemBuilder: (context, i) {
           final paper = papers[i];
-          return ListTile(title: Text(paper.no));
+          return _photoItem(paper.no);
         });
+  }
+
+  Widget _photoItem(String no) {
+    final assetsImage = 'assets/letter/paper$no.png';
+    return Container(
+      child: Image(image: AssetImage(assetsImage)),
+    );
   }
 }
