@@ -1,12 +1,13 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:issyosan_factory/domains/letter/paper.dart';
 
-part 'letter_state.freezed.dart';
+part 'showcase_state.freezed.dart';
 
 @freezed
-abstract class LetterState with _$LetterState {
+abstract class ShowcaseState with _$ShowcaseState {
   // @lateを使用していない場合は、constつける
-  factory LetterState({@Default(<Paper>[]) List<Paper> papers}) = _LetterState;
+  factory ShowcaseState({@Default(<Paper>[]) List<Paper> papers}) =
+      _ShowcaseState;
 
   // https://pub.dev/packages/freezed#late
   @late

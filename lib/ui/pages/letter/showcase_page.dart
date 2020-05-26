@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:issyosan_factory/ui/controllers/letter_controller.dart';
-import 'package:issyosan_factory/ui/controllers/letter_state.dart';
+import 'package:issyosan_factory/services/navigation_service.dart';
+import 'package:issyosan_factory/ui/controllers/showcase_controller.dart';
+import 'package:issyosan_factory/ui/controllers/showcase_state.dart';
 import 'package:issyosan_factory/ui/widget/drawer.dart';
 import 'package:provider/provider.dart';
+
+import '../../../locator.dart';
 
 class ShowcasePage extends StatefulWidget {
   const ShowcasePage({Key key}) : super(key: key);
@@ -13,10 +16,12 @@ class ShowcasePage extends StatefulWidget {
 }
 
 class _ShowcaseState extends State<ShowcasePage> {
+  final _navigationService = locator.get<NavigationService>();
+
   @override
   void initState() {
     super.initState();
-    context.read<LetterController>().fetch();
+    context.read<ShowcaseController>().fetch();
   }
 
   @override
@@ -29,14 +34,12 @@ class _ShowcaseState extends State<ShowcasePage> {
   }
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
-    final controller = Provider.of<LetterController>(context, listen: false);
     return AppBar(
       title: const Text('Showcase'),
       actions: <Widget>[
         IconButton(
-          icon: const Icon(Icons.refresh),
-          onPressed: controller.fetch,
-        )
+            icon: const Icon(Icons.view_array),
+            onPressed: () => _navigationService.navigateTo('letter_book'))
       ],
     );
   }
@@ -51,7 +54,7 @@ class _ShowcaseState extends State<ShowcasePage> {
 class Showcase extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    final papers = context.select((LetterState state) => state.papers);
+    final papers = context.select((ShowcaseState state) => state.papers);
     return GridView.builder(
         itemCount: papers.length,
         padding: const EdgeInsets.all(8),

@@ -3,6 +3,7 @@ import 'package:issyosan_factory/ui/pages/auth/login_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/detail_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/list_page.dart';
 import 'package:issyosan_factory/ui/pages/baby/registration_page.dart';
+import 'package:issyosan_factory/ui/pages/letter/book_page.dart';
 import 'package:issyosan_factory/ui/pages/letter/showcase_page.dart';
 import 'package:issyosan_factory/ui/pages/settings/settings_page.dart';
 
@@ -33,6 +34,11 @@ class Router {
         return _getPageRoute(
           routeName: settings.name,
           viewToShow: const ShowcasePage(),
+        );
+      case 'letter_book':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: const BookPage(),
         );
       case 'settings':
         return _getPageRoute(

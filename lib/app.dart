@@ -13,7 +13,7 @@ class App extends StatelessWidget {
       theme: ThemeData(
           textTheme: const TextTheme(),
           buttonTheme: ButtonThemeData(
-              shape: StadiumBorder(side: BorderSide(color: Colors.orange)),
+              shape: const StadiumBorder(side: BorderSide(color: primaryColor)),
               buttonColor: Colors.white),
           primaryColor: primaryColor,
           buttonColor: primaryColor,
