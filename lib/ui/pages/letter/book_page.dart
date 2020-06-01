@@ -6,11 +6,11 @@ import 'package:issyosan_factory/ui/controllers/book_state.dart';
 import 'package:provider/provider.dart';
 
 class BookPage extends StatelessWidget {
-  const BookPage({Key key}) : super(key: key);
+  const BookPage._({Key key}) : super(key: key);
 
   static Widget wrapped() {
     return StateNotifierProvider<BookController, BookState>(
-        create: (context) => BookController(), child: const BookPage());
+        create: (context) => BookController(), child: const BookPage._());
   }
 
   @override
