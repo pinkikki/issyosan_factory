@@ -1,23 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_state_notifier/flutter_state_notifier.dart';
 import 'package:issyosan_factory/ui/controllers/book_controller.dart';
 import 'package:issyosan_factory/ui/controllers/book_state.dart';
 import 'package:provider/provider.dart';
 
-class BookPage extends StatefulWidget {
+class BookPage extends StatelessWidget {
   const BookPage({Key key}) : super(key: key);
 
-  // FIXME: Providerの設定は各ページでstaticメソッド用意して、mixinしてあげたほうがいいかも
-
-  @override
-  _BookState createState() => _BookState();
-}
-
-class _BookState extends State<BookPage> {
-  @override
-  void initState() {
-    super.initState();
-    context.read<BookController>().fetch();
+  static Widget wrapped() {
+    return StateNotifierProvider<BookController, BookState>(
+        create: (context) => BookController(), child: const BookPage());
   }
 
   @override

@@ -6,7 +6,7 @@ import 'package:state_notifier/state_notifier.dart';
 import '../../locator.dart';
 import 'book_state.dart';
 
-class BookController extends StateNotifier<BookState> {
+class BookController extends StateNotifier<BookState> with LocatorMixin {
   BookController() : super(const BookState());
 
   final PageController _pageController = PageController(initialPage: 0);
@@ -23,8 +23,12 @@ class BookController extends StateNotifier<BookState> {
 
   @override
   void dispose() {
-    // TODO どのタイミングで呼ばれるか確認
     super.dispose();
     _pageController.dispose();
+  }
+
+  @override
+  void initState() {
+    fetch();
   }
 }

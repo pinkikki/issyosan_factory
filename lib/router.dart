@@ -38,7 +38,7 @@ class Router {
       case 'letter_book':
         return _getPageRoute(
           routeName: settings.name,
-          viewToShow: const BookPage(),
+          viewToShow: BookPage.wrapped(),
         );
       case 'settings':
         return _getPageRoute(
