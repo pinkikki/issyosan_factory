@@ -17,7 +17,7 @@ class _SettingsState extends State<SettingsPage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<SettingsViewModel>(context, listen: false).init();
+    context.read<SettingsViewModel>().init();
   }
 
   @override

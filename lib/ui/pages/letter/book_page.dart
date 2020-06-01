@@ -7,6 +7,8 @@ import 'package:provider/provider.dart';
 class BookPage extends StatefulWidget {
   const BookPage({Key key}) : super(key: key);
 
+  // FIXME: Providerの設定は各ページでstaticメソッド用意して、mixinしてあげたほうがいいかも
+
   @override
   _BookState createState() => _BookState();
 }
@@ -33,7 +35,8 @@ class _BookState extends State<BookPage> {
   }
 
   Widget _buildBody(BuildContext context) {
-    final bookController = Provider.of<BookController>(context, listen: false);
+    // Controllerは、watchでも無駄なリビルドが走らないはず
+    final bookController = context.watch<BookController>();
     final papers = context.select((BookState state) => state.papers);
     return PageView(
         controller: bookController.pageController,

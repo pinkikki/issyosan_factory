@@ -10,6 +10,7 @@ class BookController extends StateNotifier<BookState> {
   BookController() : super(const BookState());
 
   final PageController _pageController = PageController(initialPage: 0);
+
   PageController get pageController => _pageController;
 
   final PaperRepository repo = locator.get<PaperRepository>();
@@ -18,5 +19,12 @@ class BookController extends StateNotifier<BookState> {
   Future<void> fetch() async {
     state = state.copyWith(papers: await repo.list());
     logger.fine('paperCount=[${state.papers.length.toString()}].');
+  }
+
+  @override
+  void dispose() {
+    // TODO どのタイミングで呼ばれるか確認
+    super.dispose();
+    _pageController.dispose();
   }
 }

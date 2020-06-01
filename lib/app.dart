@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:issyosan_factory/router.dart';
 import 'package:issyosan_factory/services/navigation_service.dart';
+import 'package:issyosan_factory/theme.dart';
 
 import 'locator.dart';
 
 class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    const primaryColor = Color.fromARGB(255, 242, 132, 130);
     return MaterialApp(
       title: 'Issyosan Factory',
-      theme: ThemeData(
-          textTheme: const TextTheme(),
-          buttonTheme: ButtonThemeData(
-              shape: const StadiumBorder(side: BorderSide(color: primaryColor)),
-              buttonColor: Colors.white),
-          primaryColor: primaryColor,
-          buttonColor: primaryColor,
-          floatingActionButtonTheme: const FloatingActionButtonThemeData(
-            backgroundColor: primaryColor,
-          )),
-      darkTheme: ThemeData.dark(),
+      theme: buildTheme(),
       initialRoute: 'login',
       navigatorKey: locator.get<NavigationService>().navigationKey,
       onGenerateRoute: Router.generateRoute,

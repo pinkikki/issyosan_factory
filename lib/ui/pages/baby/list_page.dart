@@ -21,7 +21,7 @@ class _BooksPageState extends State<BooksPage> {
   @override
   void initState() {
     super.initState();
-    Provider.of<BabyViewModel>(context, listen: false).init();
+    context.read<BabyViewModel>().init();
   }
 
   @override
@@ -35,13 +35,12 @@ class _BooksPageState extends State<BooksPage> {
   }
 
   PreferredSizeWidget _buildAppBar(BuildContext context) {
-    final model = Provider.of<BabyViewModel>(context, listen: false);
     return AppBar(
       title: const Text('Books'),
       actions: <Widget>[
         IconButton(
           icon: const Icon(Icons.refresh),
-          onPressed: model.refresh,
+          onPressed: () => context.read<BabyViewModel>().refresh(),
         )
       ],
     );

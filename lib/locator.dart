@@ -37,6 +37,8 @@ void _aws() {
 }
 
 void _local() {
+  // FIXME: 「--dart-define」で環境変数から取得する
+  // https://medium.com/@tatsu.ukraine/flutter-1-17-no-more-flavors-no-more-ios-schemas-command-argument-that-solves-everything-8b145ed4285d
   locator.registerLazySingleton<BookRepository>(() =>
       BookClient(endpoint: 'https://jsonbox.io/box_e68dcddaabcf9809d816'));
 }
