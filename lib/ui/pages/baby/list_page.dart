@@ -49,14 +49,16 @@ class _BooksPageState extends State<BooksPage> {
   Widget _buildBody(BuildContext context) {
     return Consumer<BabyViewModel>(
       builder: (context, model, child) {
-        return ListView.builder(
-            itemCount: model.books.length,
-            itemBuilder: (context, i) {
-              final book = model.books[i];
+        return ReorderableListView(
+            onReorder: (int oldIndex, int newIndex) =>
+                model.swap(oldIndex, newIndex),
+            children: model.books.asMap().entries.map((m) {
+              final index = m.key;
+              final book = m.value;
               return Dismissible(
                 key: Key(book.id),
                 onDismissed: (direction) {
-                  model.remove(i);
+                  model.removeAt(index);
                   Scaffold.of(context).showSnackBar(
                       SnackBar(content: Text('${book.id} dismissed')));
                 },
@@ -66,7 +68,7 @@ class _BooksPageState extends State<BooksPage> {
                     subtitle: Text(book.released.toIso8601String()),
                     onTap: () => _navigationService.navigateTo('book_detail')),
               );
-            });
+            }).toList());
       },
     );
   }

@@ -24,7 +24,13 @@ class BabyViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  Future<void> remove(int index) async {
+  Future<void> swap(int oldIndex, int newIndex) async {
+    final removed = _books.removeAt(oldIndex);
+    _books.insert(oldIndex < newIndex ? newIndex - 1 : newIndex, removed);
+    notifyListeners();
+  }
+
+  Future<void> removeAt(int index) async {
     final book = _books.removeAt(index);
     await repo.remove(book);
     notifyListeners();
