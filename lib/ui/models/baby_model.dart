@@ -9,19 +9,18 @@ class BabyViewModel extends ChangeNotifier {
   final BookRepository repo = locator.get<BookRepository>();
 
   List<Book> _books = [];
+  bool _isLoading;
 
   List<Book> get books => _books;
 
+  bool get isLoading => _isLoading;
+
   Future<void> init() async {
-    _books = await repo.list();
-    logger.fine('bookCount=[${_books.length.toString()}].');
-    notifyListeners();
+    return fetch();
   }
 
-  Future<void> refresh() async {
-    _books = await repo.list();
-    logger.fine('bookCount=[${_books.length.toString()}].');
-    notifyListeners();
+  Future<void> refresh() {
+    return fetch();
   }
 
   Future<void> swap(int oldIndex, int newIndex) async {
@@ -33,6 +32,15 @@ class BabyViewModel extends ChangeNotifier {
   Future<void> removeAt(int index) async {
     final book = _books.removeAt(index);
     await repo.remove(book);
+    notifyListeners();
+  }
+
+  Future<void> fetch() async {
+    _isLoading = true;
+    notifyListeners();
+    _books = await repo.list();
+    logger.fine('bookCount=[${_books.length.toString()}].');
+    _isLoading = false;
     notifyListeners();
   }
 }
