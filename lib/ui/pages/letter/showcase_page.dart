@@ -63,14 +63,39 @@ class Showcase extends StatelessWidget {
                 crossAxisCount: 4, crossAxisSpacing: 2, mainAxisSpacing: 10),
             itemBuilder: (context, i) {
               final paper = papers[i];
-              return _photoItem(paper.no);
+              return _photoItem(context, paper.no);
             }));
   }
 
-  Widget _photoItem(String no) {
+  Widget _photoItem(BuildContext context, String no) {
     final assetsImage = 'assets/letter/paper$no.png';
-    return Container(
-      child: Image(image: AssetImage(assetsImage)),
-    );
+    return Hero(
+        tag: 'Showcase$no',
+        // https://github.com/flutter/flutter/issues/34119
+        child: Material(
+          child: InkWell(
+//          onTap: () => _navigationService.navigateTo('letter_book'),
+              onTap: () => _navigate(context, no),
+              child: Container(
+                child: Image(image: AssetImage(assetsImage)),
+              )),
+        ));
+  }
+
+  void _navigate(BuildContext context, String no) {
+    Navigator.of(context)
+        .push(MaterialPageRoute<void>(builder: (BuildContext context) {
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('Second Page'),
+        ),
+        body: Hero(
+            tag: 'Showcase$no',
+            child: Center(
+                child: Container(
+              child: Image(image: AssetImage('assets/letter/paper$no.png')),
+            ))),
+      );
+    }));
   }
 }
