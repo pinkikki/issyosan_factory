@@ -38,6 +38,12 @@ class AppDrawer extends StatelessWidget {
             },
           ),
           ListTile(
+            title: const MenuText('Torokkorio'),
+            onTap: () {
+              _navigationService.navigateTo('torokkorio');
+            },
+          ),
+          ListTile(
             title: const MenuText('Settings'),
             onTap: () {
               _navigationService.navigateTo('settings');
