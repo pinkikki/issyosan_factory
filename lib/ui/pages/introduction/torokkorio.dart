@@ -32,7 +32,7 @@ class _TorokkorioState extends State<TorokkorioPage> {
     return SafeArea(
         child: ConstrainedBox(
       constraints: BoxConstraints(
-          maxWidth: _mediaSize.width, maxHeight: _mediaSize.height * 0.8),
+          maxWidth: _mediaSize.width, maxHeight: _mediaSize.height),
       child: WebView(
         onWebViewCreated: (controller) {
           _webViewController = controller;
