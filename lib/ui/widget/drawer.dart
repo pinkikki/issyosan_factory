@@ -49,6 +49,12 @@ class AppDrawer extends StatelessWidget {
               _navigationService.navigateTo('settings');
             },
           ),
+          ListTile(
+            title: const MenuText('Licenses'),
+            onTap: () {
+              _navigationService.navigateTo('license_types');
+            },
+          ),
         ],
       ),
     );

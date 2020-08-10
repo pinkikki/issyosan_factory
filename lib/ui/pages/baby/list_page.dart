@@ -21,7 +21,9 @@ class _BooksPageState extends State<BooksPage> {
   @override
   void initState() {
     super.initState();
-    context.read<BabyViewModel>().init();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      context.read<BabyViewModel>().init();
+    });
   }
 
   @override
@@ -51,7 +53,6 @@ class _BooksPageState extends State<BooksPage> {
       builder: (context, model, child) {
         return model.isLoading
             ? const Center(child: CircularProgressIndicator())
-//            ? const Center(child: CupertinoActivityIndicator())
             : ReorderableListView(
                 onReorder: (int oldIndex, int newIndex) =>
                     model.swap(oldIndex, newIndex),

@@ -9,7 +9,7 @@ class BabyViewModel extends ChangeNotifier {
   final BookRepository repo = locator.get<BookRepository>();
 
   List<Book> _books = [];
-  bool _isLoading;
+  bool _isLoading = true;
 
   List<Book> get books => _books;
 

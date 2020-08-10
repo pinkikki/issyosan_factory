@@ -6,6 +6,9 @@ import 'package:issyosan_factory/ui/pages/baby/registration_page.dart';
 import 'package:issyosan_factory/ui/pages/introduction/torokkorio.dart';
 import 'package:issyosan_factory/ui/pages/letter/book_page.dart';
 import 'package:issyosan_factory/ui/pages/letter/showcase_page.dart';
+import 'package:issyosan_factory/ui/pages/license/about_tile_license_page.dart';
+import 'package:issyosan_factory/ui/pages/license/custom_license_page.dart';
+import 'package:issyosan_factory/ui/pages/license/license_types.dart';
 import 'package:issyosan_factory/ui/pages/settings/settings_page.dart';
 
 class Router {
@@ -44,12 +47,32 @@ class Router {
       case 'torokkorio':
         return _getPageRoute(
           routeName: settings.name,
-          viewToShow: TorokkorioPage(),
+          viewToShow: const TorokkorioPage(),
         );
       case 'settings':
         return _getPageRoute(
           routeName: settings.name,
           viewToShow: const SettingsPage(),
+        );
+      case 'license_types':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: LicenseTypesPage(),
+        );
+      case 'custom_licenses':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: const CustomLicensePage(),
+        );
+      case 'original_licenses':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: const LicensePage(),
+        );
+      case 'about_tile_licenses':
+        return _getPageRoute(
+          routeName: settings.name,
+          viewToShow: const AboutTileLicensePage(),
         );
       default:
         return MaterialPageRoute<void>(

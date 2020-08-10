@@ -22,10 +22,6 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              SizedBox(
-                height: 150,
-                child: Image.asset('assets/images/title.png'),
-              ),
               TextFormField(
                 decoration: const InputDecoration(labelText: 'mail address'),
                 controller: emailController,
